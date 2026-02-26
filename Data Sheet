@@ -1,0 +1,22 @@
+1. Motivation
+Purpose of the data set: The dataset was created to support black-box optimisation (BBO) experiments for a capstone project. It contains historical queries and observed outputs for 8 benchmark functions.
+Task: The dataset enables training surrogate models (Random Forest and Gaussian Process) to guide the next query selection, facilitating efficient exploration and exploitation of unknown function landscapes.
+2. Composition
+Contents: Each row represents one query to a function and its corresponding output. The columns are: Input 1 through Input d (where d is the input dimension) and Output (objective function value).
+Size: ~20–50 points per function over multiple rounds of evaluation.
+Format: CSV format with floating-point values.
+Gaps: Some original columns may have contained missing values (NaNs), which were removed in preprocessing.
+3. Collection Process
+Query generation: Inputs were sampled using Latin Hypercube Sampling (LHS) to uniformly explore the input space.
+Strategy: A hybrid approach was applied:
+Random Forest surrogate to narrow down promising candidates.
+Gaussian Process surrogate with Upper Confidence Bound (UCB) acquisition function to select the next point.
+Time frame: Data was collected iteratively over ten rounds, adding new “weekly” query results sequentially to the dataset.
+4. Preprocessing and Uses
+Transformations: NaN columns were removed, and data types were standardized as floats. Data was normalized implicitly by the GP during model fitting.
+Intended uses: Training surrogate models for BBO, benchmarking optimisation strategies, and analyzing model performance across functions.
+Inappropriate uses: The dataset is not intended for supervised learning outside of BBO context, or for extrapolation far outside the original input bounds.
+5. Distribution and Maintenance
+Availability: Dataset is stored in the capstone project GitHub repository (/data/Function_X.csv).
+Terms of use: Open for academic and research purposes; no commercial use without permission.
+Maintenance: Maintained by the project author, with updates applied as new rounds of queries are executed.
