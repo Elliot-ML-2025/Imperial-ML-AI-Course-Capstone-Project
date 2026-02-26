@@ -1,0 +1,28 @@
+Overview
+Name: Random Forest – Gaussian Process Hybrid Optimisation
+Type: Surrogate-based Bayesian Optimisation
+Version: 1.0 (capstone implementation)
+2. Intended Use
+Tasks: Optimising continuous, black-box functions with unknown gradients in moderate dimensions (up to 8D).
+Use cases to avoid: Discrete optimisation, high-dimensional spaces (>15D), or safety-critical real-world systems without additional validation.
+3. Details (Strategy Across Rounds)
+Rounds 1–6: Pure exploration using Latin Hypercube Sampling to initialize the dataset and pure GP+acquisition model used.
+Rounds 7–10: Random Forest used to identify top candidate regions; GP fitted on observed points to refine selection using UCB.
+Rounds 11–13: Increasingly exploitative strategy: GP variance-guided exploration with UCB, while still sampling from RF-selected candidate points.
+Techniques used:
+Random Forest as a coarse surrogate to reduce search space.
+Gaussian Process regression with Matern kernel for fine-grained prediction.
+Upper Confidence Bound acquisition function with β = 1.96 for balancing exploration/exploitation.
+4. Performance
+Metrics: Best-observed objective value per function, cumulative regret, and convergence over rounds.
+Summary: Across 8 benchmark functions, the hybrid approach consistently identified high-performing regions within 10 rounds, outperforming random or purely GP-based selection in early rounds.
+5. Assumptions and Limitations
+Assumptions:
+Functions are continuous and moderately smooth.
+Input space is normalized to [0,1]^d (d is input dimension of specific function).
+Constraints / Failure Modes:
+GP may underperform with very sparse data or high-dimensional spaces.
+RF preselection may miss global maxima if initial LHS samples are insufficient.
+6. Ethical Considerations
+Transparency: All data, code, and decisions are documented in the GitHub repository, supporting reproducibility.
+Responsible use: Clear instructions are provided on intended tasks and limitations, avoiding misapplication in sensitive domains.
