@@ -1,16 +1,15 @@
 # Imperial-ML-AI-Course-Capstone-Project
-Capstone project on black-box ML models - building testing and interpreting complex algorithms
 This project is a capstone exploration of Black-Box Optimization (BBO), focused on systematically optimising 8 different expensive, unknown functions using limited data. The primary goal is to identify inputs that maximise the functions. We are provided initial data and are only allowed to query each function 13 times in total. This simulates real-world optimisation problems where data is limited and obtaining new data (or equivalently more information about a black-box function) is costly.
 
-**Inputs and Outputs:**
+## Inputs and Outputs
 
-Inputs - The model receives query points from multi-dimensional spaces with dimensions ranging from 2D to 8D. Each input is from the closed interval $[0,1]$
+Inputs - The model receives query points from multi-dimensional spaces with dimensions ranging from 2D to 8D. Each input is from the  interval $[0,1)$
 
 Outputs - Each function returns a singular real number for a given input.  
 
-**Challenge objectives:**
+## Challenge objectives
 
-The goal is to maximise each function. We are given 14 chances to query the function in order to update our model. One round of querying could look as follows:
+The goal is to maximise each function. We are given 13 chances to query the function in order to update our model. One round of querying could look as follows:
 
 For a 4D function -
 
@@ -20,18 +19,39 @@ Output response - 1.30045505
 
 Since there are limited queries, this means it is important to emphasise careful selection balancing exploration and exploitation. Other constraints include a lack of information about the structure of the function (such as smoothness of the function and how different features interact with one another). 
 
-**Technical Approach**
+## Technical Approach
 
-I use Gaussian Process (GP) regression with an Upper Confidence Bound (UCB) acquisition function to perform black-box optimization. The GP treats the unknown objective as a distribution over functions, providing both a posterior mean (expected performance) and a posterior standard deviation (model uncertainty) at any candidate point. The UCB acquisition function selects the next evaluation by maximizing
+I use Gaussian Process (GP) regression as the foundation for a Bayesian Optimization (BO) loop. In this framework, the unknown function is treated probabilistically: a GP defines a distribution over functions, such that for any finite set of input points, the function values are jointly Gaussian. Concretely, a GP provides a posterior mean $\mu(x)$, which estimates the expected function value at a point $x$, and a posterior standard deviation $\sigma(x)$, which quantifies uncertainty about the function at that point. This allows the model to not only predict function values but also reason about where it is uncertain, which is critical when data is limited.
+In Bayesian Optimization, acquisition functions use the GP’s predictions to select the next point to query. The acquisition function balances exploration (sampling points with high uncertainty to gain information) and exploitation (sampling points with high expected values to maximize the objective). By iteratively updating the GP with new data and selecting points that maximise the acquisition function, Bayesian Optimization efficiently searches the input space for the global maximum.
 
-$$\text{UCB}(x) := \mu(x)+\beta \sigma(x) $$
+The Upper Confidence Bound (UCB) acquisition function is defined at $x$ by:
 
-explicitly trading off exploitation (high predicted value) and exploration (high uncertainty).
+$$\text{UCB}(x)=\mu(x)+\beta \sigma(x),$$
 
-The primary design choice is the exploration parameter $β$, which controls this tradeoff. Large $β$ values favor exploration by prioritizing uncertain regions, while smaller values emphasize exploitation of regions with high predicted performance. I use a linearly decaying $β$ schedule, starting with strong exploration and gradually shifting toward exploitation over the 13 optimization iterations. This reflects the intuition that broad exploration is most valuable early, while later iterations should refine the search around promising regions.
+where $\beta > 0$ is a parameter controlling the trade-off between exploration and exploitation. A higher $\beta$ favors points with greater uncertainty (exploration), while a lower $\beta$ favors points with higher predicted values (exploitation).
 
-Importantly, β is treated as dimension-dependent. In low-dimensional settings (e.g., 2D with 10 initial samples), the input space is relatively well covered, making aggressive exploration both feasible and beneficial. In higher-dimensional settings (e.g., 8D with 40 samples), the space is sparsely sampled—effectively only a few points per dimension—so exhaustive exploration is unrealistic. In these cases, starting with a lower β acknowledges the limits of coverage in high dimensions and biases the search toward exploitation sooner, improving practical efficiency.
+This approach is theoretically grounded in Srinivas et al. (2009, arXiv:0912.3995), which shows that using the GP-UCB acquisition function guarantees sublinear cumulative regret. Regret measures the difference between the function value at the global maximum and the value at points actually sampled. Sublinear regret means that, as more queries are made, the average difference between the best possible outcome and the sampled outcomes decreases over time, implying that the algorithm becomes increasingly effective at identifying the maximum.
 
-In the first 3 queries, I have focused on exploration, which involves using a higher value for beta. In future rounds, I plan to gradually make beta smaller to focus on exploitation. In higher dimensions, it will be necessary to decrease this beta more aggressively as points are more sparse in higher dimensions. I've decided to place a high emphasis on exploration. This is because the data we have initially been provided is very sparse and so there will likely be regions of high uncertainty, which means high potential for improvement of the optimal value for the function.
+In layman’s terms, this means that the GP-UCB strategy ensures we are efficiently learning about the function, increasingly focusing on regions that matter while still occasionally exploring uncertain areas. Mathematically, it gives a performance guarantee: the optimization is not just heuristic, but backed by a provable bound on how “far off” the algorithm can be from the true maximum as queries accumulate.
 
-After more data has been gathered, I will start to use more ML techniques to support the use of a GP. This will entail using correlation analysis to evaluate the effect of features on the function, which potentially help with dimension reduction. It will also involve classification models such as SVMs to determine promising regions. 
+## Optimization Phases
+
+**Phase 1 - Exploratory Phase:**
+
+This phase spans iteration 1-6. The purpose of this phase is to gain an understanding of the global structure for each function. Using a larger $\beta$ value in the UCB acquisition functions, the algorithm prioritizes uncertain regions of the input space to identify promising areas that may contain the global maximum. This is especially important given the sparse initial data and high dimensionality of some functions.
+
+**Phase 2 - Refined Search of Promising Promising points:**
+
+This phase spans iterations 7-10. After initial exploration, the strategy shifts slightly toward exploitation. The $\beta$ parameter is reduced to focus on regions predicted to have high function values, increasing the likelihood of improving the observed maximum. In this phase, additional machine learning techniques, such as random forest models are incorporated to support the GP by identifying promising subspaces.
+
+**Phase 3 - Exploitative Phase:**
+
+This phase spans iterations 11-13. In later iterations, the model concentrates on fine-tuning around identified maxima. The GP-UCB  guides query selection, but with a much stronger emphasis on exploitation concentrating purely on regions containing already identified maxima.
+
+Each phase reflects a deliberate trade-off between learning about the function broadly and efficiently improving the maximum observed value, aligning with both practical and theoretical insights from Bayesian Optimisation. 
+
+More detailed descriptions of the algorithms and methods used in each phase can be found in the corresponding folder named after that phase.
+
+
+
+
