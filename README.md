@@ -52,9 +52,42 @@ Each phase reflects a deliberate trade-off between learning about the function b
 
 More detailed descriptions of the algorithms and methods used in each phase can be found in the corresponding folder named after that phase.
 
+## Data
+Data for each submission can be found within the data folder. This includes initial data and data obtained after each submission. There is also an Excel spreadsheet containing all the data and week-by-week analysis of improvements in each function.  
+
 ## Repository structure
 
-
-
-
-
+```
+Imperial-ML-AI-Course-Capstone-Project/
+├── Data
+│   ├── initial_data-3
+│   ├── Raw Data
+│   ├── Black Box Optimization Output Tracking.xlsx
+│   └── Data Description.md
+├── Phase 1 - Exploratory Phase
+│   ├── Capstone Project Week 1 Function 1.ipynb
+│   ├── ...
+│   ├── Capstone Project Week 1 Function 8.ipynb
+│   ├── Week 1 Code Description.md
+│   ├── Week 6 - Function 1.ipynb
+│   ├── ...
+│   ├── Week 6 - Function 8.ipynb
+│   └── Week 6 Code Description.md
+├── Phase 2 - Refined Search of Promising points
+│   ├── Week 10 - Function 1.ipynb
+│   ├── ...
+│   ├── Week 10 - Function 8.ipynb
+│   ├── Week 10 Code Description.md
+│   ├── Week 7 - Function 1.ipynb
+│   ├── ...
+│   ├── Week 7 - Function 8.ipynb
+│   └── Week 7 Code description.md
+├── Phase 3 - Exploitative Phase
+│   ├── Week 11-13 - Function 1.ipynb
+│   ├── ...
+│   ├── Week 11-13 - Function 8.ipynb
+│   └── Week 11-13 code description.md
+├── Data Sheet
+├── Model Card
+└── README.md
+```
