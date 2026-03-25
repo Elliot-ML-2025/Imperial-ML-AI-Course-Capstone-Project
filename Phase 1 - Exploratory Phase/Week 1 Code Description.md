@@ -1,4 +1,4 @@
-**Week 1 Code**
+# Week 1 - First Iteration and Creating a Baseline GP model
 
 These scripts implement the first iteration of a Bayesian optimisation loop for each function using a Gaussian process surrogate model and an Upper Confidence Bound (UCB) acquisition strategy.
 
