@@ -53,7 +53,7 @@ Each phase reflects a deliberate trade-off between learning about the function b
 More detailed descriptions of the algorithms and methods used in each phase can be found in the corresponding folder named after that phase.
 
 ## Data
-Data for each submission can be found within the data folder. This includes initial data and data obtained after each submission. There is also an Excel spreadsheet containing all the data and week-by-week analysis of improvements in each function.  
+Data for each submission can be found within the data folder. This includes initial data and data obtained after each submission. There is also an Excel spreadsheet included containing all the data and week-by-week analysis of improvements in each function.  
 
 ## Repository structure
 
