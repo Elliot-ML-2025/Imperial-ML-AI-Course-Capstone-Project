@@ -52,8 +52,22 @@ Each phase reflects a deliberate trade-off between learning about the function b
 
 More detailed descriptions of the algorithms and methods used in each phase can be found in the corresponding folder named after that phase.
 
-## Data
-Data for each submission can be found within the data folder. This includes initial data and data obtained after each submission. There is also an Excel spreadsheet included containing all the data and week-by-week analysis of improvements in each function.  
+## Data and Code
+Data for each submission can be found in the Data folder. This includes both the initial datasets and the additional observations collected after each weekly submission. An Excel spreadsheet is also provided containing the full dataset alongside a week-by-week analysis of improvements for each function.
+
+The code included corresponds to the first and final iterations within each optimisation phase. Between weeks, most updates involved incorporating newly acquired data rather than making major structural changes to the algorithms. Including these versions highlights the overall evolution of the approach across the project. 
+
+## Results
+| Function | Dimension | Initial Best | Final Best |
+|----------|-----------|------------------|------------|
+| Function 1 | 2D | 7.71e-16 | 1.27e-5| 
+| Function 2 | 2D | 0.611| 0.655 | 
+| Function 3 | 3D | -0.034 | -0.001 | 
+| Function 4 | 4D | -4.02 | 0.68 | 
+| Function 5 | 4D | 1088 |  7055| 
+| Function 6 | 5D | -0.71 | -0.050| 
+| Function 7 | 6D |1.36 | 2.75 | 
+| Function 8 | 8D | 9.598 |9.988  |
 
 ## Repository structure
 
@@ -91,3 +105,4 @@ Imperial-ML-AI-Course-Capstone-Project/
 ├── Model Card
 └── README.md
 ```
+
