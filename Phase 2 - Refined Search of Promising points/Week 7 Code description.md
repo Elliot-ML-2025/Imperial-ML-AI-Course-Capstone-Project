@@ -21,7 +21,7 @@ Light tuning is appropriate because the RF serves as a screening tool to identif
 **Candidate Point Generation**
 
 Generates a dense grid of candidate points using Latin Hypercube Sampling (LHS).
-Uses the tuned RF to predict outputs across the grid and selects the top-performing candidates.
+Uses the tuned RF to predict outputs across the grid and selects the top-performing candidates. For the lower dimensional functions (1-4 dimensions), the top 200 points would be considered, wheras for the higher dimensional functions, i would consider the top 3-5 hundred points.
 
 **Gaussian Process Refinement**
 
