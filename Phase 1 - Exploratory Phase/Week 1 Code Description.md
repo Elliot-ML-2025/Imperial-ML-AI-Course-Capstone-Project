@@ -1,4 +1,4 @@
-Week 1 Code:
+**Week 1 Code**
 These scripts implement the first iteration of a Bayesian optimisation loop for each function using a Gaussian process surrogate model and an Upper Confidence Bound (UCB) acquisition strategy.
 
 For each function, we were provide with a handful of input–output observations. These are used to fit a Gaussian process regression model with a fixed RBF kernel. The surrogate model is then evaluated across a dense grid covering the search domain to obtain predictions of both the mean response and associated uncertainty.
