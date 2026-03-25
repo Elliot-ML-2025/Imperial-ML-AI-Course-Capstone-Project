@@ -1,4 +1,4 @@
-**Week 6 Code:**
+# Week 6 - Final iteration of exploratory phase
 
 These scripts implement the final iteration in the Exploratory Phase of my Bayesian Optimization loop for each function. At this stage, there was an extra 5 input-output data points from queries in previous week.
 
