@@ -9,11 +9,11 @@ Outputs - Each function returns a singular real number for a given input.
 
 ## Challenge objectives
 
-The goal is to maximise each function. We are given 13 chances to query the function in order to update our model. One round of querying could look as follows:
+The goal is to maximise each function. We are given 13 chances to query the function in order to update our model. An example of one query could look as follows:
 
 For a 4D function -
 
-Query point = (0.122345,0.673839,0.949390,0.349599)
+Queried point = (0.122345,0.673839,0.949390,0.349599)
 
 Output response - 1.30045505
 
@@ -51,6 +51,9 @@ This phase spans iterations 11-13. In later iterations, the model concentrates o
 Each phase reflects a deliberate trade-off between learning about the function broadly and efficiently improving the maximum observed value, aligning with both practical and theoretical insights from Bayesian Optimisation. 
 
 More detailed descriptions of the algorithms and methods used in each phase can be found in the corresponding folder named after that phase.
+
+## Repository structure
+
 
 
 
