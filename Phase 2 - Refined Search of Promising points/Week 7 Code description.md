@@ -27,6 +27,7 @@ Uses the tuned RF to predict outputs across the grid and selects the top-perform
 
 * Fits a Gaussian Process with a Matern kernel to the selected candidates.
 * Computes the Upper Confidence Bound (UCB) for balancing exploration and exploitation.
+* A beta of 1.96 was used for the UCB function, corresponding to a 95% confidence interval. This balances exploration and exploitation by considering both the predicted mean and uncertainty, helping the algorithm target promising regions while still allowing for discovery.
 * Suggests the next query point based on the highest UCB, for both RF-selected candidates and the entire domain.
 
 This hybrid approach leverages the efficiency of Random Forests for large-scale screening and the uncertainty modeling of Gaussian Processes for principled exploration, enabling efficient sequential optimization in high-dimensional spaces.
