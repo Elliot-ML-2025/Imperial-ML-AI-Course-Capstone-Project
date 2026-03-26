@@ -58,16 +58,16 @@ Data for each submission can be found in the Data folder. This includes both the
 The code included corresponds to the first and final iterations within each optimisation phase. Between weeks, most updates involved incorporating newly acquired data rather than making major structural changes to the algorithms. Including these versions highlights the overall evolution of the approach across the project. 
 
 ## Results
-| Function | Dimension | Initial Best | Final Best |
-|----------|-----------|------------------|------------|
-| Function 1 | 2D | 7.71e-16 | 1.27e-5| 
-| Function 2 | 2D | 0.611| 0.655 | 
-| Function 3 | 3D | -0.034 | -0.001 | 
-| Function 4 | 4D | -4.02 | 0.68 | 
-| Function 5 | 4D | 1088 |  7055| 
-| Function 6 | 5D | -0.71 | -0.050| 
-| Function 7 | 6D |1.36 | 2.75 | 
-| Function 8 | 8D | 9.598 |9.988  |
+| Function | Dimension | Initial Best | Final Best |  Week Found |
+|----------|-----------|------------------|------------|------------|
+| Function 1 | 2D | 7.71e-16 | 1.27e-5|  12 |
+| Function 2 | 2D | 0.611| 0.655 | 10 |
+| Function 3 | 3D | -0.034 | -0.001 | 12 |
+| Function 4 | 4D | -4.02 | 0.68 | 11 |
+| Function 5 | 4D | 1088 |  7055| 13 |
+| Function 6 | 5D | -0.71 | -0.050| 11 |
+| Function 7 | 6D |1.36 | 2.75 | 11 |
+| Function 8 | 8D | 9.598 |9.988  | 11 |
 
 **Note:**
   * Functions 3 and 6 are capped above at 0
