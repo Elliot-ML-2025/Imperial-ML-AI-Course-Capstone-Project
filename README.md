@@ -109,8 +109,9 @@ Imperial-ML-AI-Course-Capstone-Project/
 │   ├── ...
 │   ├── Week 11-13 - Function 8.ipynb
 │   └── Week 11-13 code description.md
-├── Data Sheet
-├── Model Card
+├── Acquisition function:exploration parameter choices.png
+├── Data Sheet.md
+├── Model Card.md
 └── README.md
 ```
 
