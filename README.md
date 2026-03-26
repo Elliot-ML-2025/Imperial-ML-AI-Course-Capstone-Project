@@ -42,7 +42,7 @@ This phase spans iteration 1-6. The purpose of this phase is to gain an understa
 
 **Phase 2 - Refined Search of Promising Points:**
 
-This phase spans iterations 7-10. After initial exploration, the strategy shifts slightly toward exploitation. The $\beta$ parameter is reduced to focus on regions predicted to have high function values, increasing the likelihood of improving the observed maximum. In this phase, additional machine learning techniques, such as random forest models are incorporated to support the GP by identifying promising subspaces.
+This phase spans iterations 7-10. After initial exploration, the strategy shifts slightly toward exploitation. The $\beta$ parameter is reduced to focus on regions predicted to have high function values, increasing the likelihood of improving the observed maximum. In this phase, I incorporate  random forest models to support the GP by identifying promising subspaces.
 
 **Phase 3 - Exploitative Phase:**
 
