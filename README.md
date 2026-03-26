@@ -1,23 +1,28 @@
 # Imperial-ML-AI-Course-Capstone-Project
-This project is a capstone exploration of Black-Box Optimization (BBO), focused on systematically optimising 8 different expensive, unknown functions using limited data. The primary goal is to identify inputs that maximise the functions. We are provided initial data and are only allowed to query each function 13 times in total. This simulates real-world optimisation problems where data is limited and obtaining new data (or equivalently more information about a black-box function) is costly.
+This capstone project explores Black-Box Optimisation (BBO) by systematically optimising eight different expensive, unknown functions using very limited data. The objective is to identify combinations of inputs that maximise each function’s output. Only a small number of evaluations (13 per function) are allowed, simulating real-world optimisation scenarios where gathering new information is costly or time-consuming. The project therefore focuses on designing efficient strategies that balance learning about the problem with making strong predictions.
+
+## Non-Technical Description
+In this challenge, I tried to find the best possible inputs for a set of hidden mathematical functions without knowing how the functions worked internally. Instead, I could only test a small number of guesses and observe the results they produced, gradually improving my strategy over time. This mirrors real-world situations where experiments are expensive or slow, such as tuning machine learning models, designing new materials or drugs, improving engineering systems, or optimising business decisions with limited trial opportunities. The project therefore focuses on making careful, evidence-based decisions about when to explore new possibilities and when to refine promising ideas in order to achieve strong results with very limited information
 
 ## Inputs and Outputs
 
-Inputs - The model receives query points from multi-dimensional spaces with dimensions ranging from 2D to 8D. Each input is from the  interval $[0,1)$
+Inputs - Each function accepts query points from multi-dimensional spaces with dimensions ranging from 2D to 8D. Each input is from the interval $[0,1)$
 
-Outputs - Each function returns a singular real number for a given input.  
+Outputs - Each function returns a singular real number for a given input.  For example, querying a 4D function could look as follows:
+
+**Queried point:** 
+
+(0.122345,0.673839,0.949390,0.349599)
+
+**Output response** 
+
+1.30045505
+
 
 ## Challenge objectives
 
-The goal is to maximise each function. We are given 13 chances to query the function in order to update our model. An example of one query could look as follows:
-
-For a 4D function -
-
-Queried point = (0.122345,0.673839,0.949390,0.349599)
-
-Output response - 1.30045505
-
-Since there are limited queries, this means it is important to emphasise careful selection balancing exploration and exploitation. Other constraints include a lack of information about the structure of the function (such as smoothness of the function and how different features interact with one another). 
+The goal is to maximise each function using only 13 total queries per function. After each query, the returned value can be used to update the optimisation strategy.
+Because the number of queries is and amount of initial data is limited, success depends on carefully balancing exploration (testing new regions of the search space) with exploitation (refining promising areas already identified). Additional challenges arise from the lack of information about each function’s structure, such as smoothness or interactions between variables, making strategic decision-making especially important.
 
 ## Technical Approach
 
