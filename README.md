@@ -71,7 +71,7 @@ The code included corresponds to the first and final iterations within each opti
 
 **Note:**
   * Functions 3 and 6 are capped above at 0
-  * Function 4 achieved sign flip in submission 8 - all previous data was negative
+  * Function 4 achieved sign flip in submission 8 - all previous outputs were negative
 ## Repository structure
 
 ```
