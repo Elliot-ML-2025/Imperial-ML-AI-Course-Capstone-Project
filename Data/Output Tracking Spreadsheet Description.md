@@ -3,7 +3,7 @@ This spreadsheet contains 1 sheet for each of the 8 functions. Within each sheet
 
 # Graphs 
 
-Below are graphs of weekly improvement in maxima for functions 1-8. Please note that the initial maximum is included in the graph and is first maximum.
+Below are graphs of weekly improvement in maxima for functions 1-8. Please note that the initial maximum is included in the graph and is first maximum (so submission 1 is the initial maximum)
 
 **Function 1**
 
