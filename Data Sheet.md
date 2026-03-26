@@ -45,7 +45,7 @@ Minimal preprocessing was required:
 
 **Intended uses**
 
-This data is intended for training surrogate models for BBO to model these particular functions. It is intended to demonstrate Bayesian Optimization methodology and analyse Optimisation strategies
+This data is intended for training surrogate models for BBO to model these particular functions. It is intended to demonstrate Bayesian Optimization methodology and analyse Optimisation strategies.
 It is a purely academic exercise and is not intended for production level ML.
 
 **Privacy**
