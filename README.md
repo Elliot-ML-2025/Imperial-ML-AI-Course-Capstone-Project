@@ -70,7 +70,7 @@ The code included corresponds to the first and final iterations within each opti
 | Function 8 | 8D | 9.598 |9.988  |
 
 **Note:**
-  * Functions 3 and 6 are capped at 0
+  * Functions 3 and 6 are capped above at 0
   * Function 4 achieved sign flip in submission 8 - all previous data was negative
 ## Repository structure
 
