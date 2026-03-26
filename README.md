@@ -80,7 +80,7 @@ Imperial-ML-AI-Course-Capstone-Project/
 │   ├── initial_data-3
 │   ├── Raw Data
 │   ├── Black Box Optimization Output Tracking.xlsx
-│   └── Data Description.md
+│   └── Output Tracking Spreadsheet Description.md
 ├── Phase 1 - Exploratory Phase
 │   ├── Capstone Project Week 1 Function 1.ipynb
 │   ├── ...
