@@ -40,7 +40,7 @@ In layman’s terms, this means that the GP-UCB strategy ensures we are efficien
 
 This phase spans iteration 1-6. The purpose of this phase is to gain an understanding of the global structure for each function. Using a larger $\beta$ value in the UCB acquisition functions, the algorithm prioritizes uncertain regions of the input space to identify promising areas that may contain the global maximum. This is especially important given the sparse initial data and high dimensionality of some functions.
 
-**Phase 2 - Refined Search of Promising Promising points:**
+**Phase 2 - Refined Search of Promising Points:**
 
 This phase spans iterations 7-10. After initial exploration, the strategy shifts slightly toward exploitation. The $\beta$ parameter is reduced to focus on regions predicted to have high function values, increasing the likelihood of improving the observed maximum. In this phase, additional machine learning techniques, such as random forest models are incorporated to support the GP by identifying promising subspaces.
 
