@@ -96,4 +96,40 @@ Objective function is:
 
 * *Scalability issues:* GP computational cost scales cubically with number of points to evaluate. The number of points needed to cover the search space increases exponentially with dimension so  the model does not scale well to very high dimensions
 * *Sensitive to kernel choice and hyperparameters:* There are many different hyperparameters that can be changed and it is hard to get a sense of which is the most important given limited data
-* 
+
+## Evaluation Metrics
+
+Performance is task-dependent but typically includes:
+* Best objective value found vs. iterations
+* Regret (simple or cumulative)
+* Convergence speed
+
+## Risk and Failure Modes
+
+* *Premature exploitation:*  Model may converge to local optima if exploration is insufficient
+* *Model misspecification:* Poor surrogate assumptions such as incorrect kernel
+* *Noisy observations:* Can mislead the surrogate if not modeled properly
+* *Acquisition optimization failure:* Suboptimal selection of next point
+
+## Ethical Considerations
+
+* If used in high-stakes domains such as healthcare or finance it is important to ensure robustness to noise and uncertainty and avoid overfitting to small datasets
+* Be cautious when optimizing objectives that may encode bias, it is important to ensure the search space is adequately covered and points are not queried all in the same place
+
+## Practical Considerations 
+
+**Hyperparameters**
+
+* Kernel Choice (e.g. RBF or Matern) and smoothness assumptions if using Matern
+* Acquistion function choice and parameters (e.g. $\beta,\eta$)
+
+**Implementation notes**
+* Normalize inputs and outputs
+* Make sure to track the diverstiy of sampled points
+
+## Example Applications
+
+* Hyperparameter tuning for models that are expensive to run
+* Drug discovery and materials design - lab experiments are costly and time-consuming so this model could be used to test which chemical or material composition to test next
+* Business and Operations optimization - could be used for supply chain configuration, pricing strategy testing or market campaign parameter tuning 
+  
